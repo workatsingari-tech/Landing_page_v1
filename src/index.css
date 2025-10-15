@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,53 +11,59 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 215 45% 18%;
+    --primary: 210 60% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 20% 92%;
-    --secondary-foreground: 215 45% 18%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 15% 45%;
+    --muted: 0 0% 98%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 42 78% 58%;
-    --accent-foreground: 215 45% 18%;
+    --accent: 145 65% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 15% 88%;
-    --input: 215 15% 88%;
-    --ring: 215 45% 18%;
+    --border: 0 0% 90%;
+    --input: 0 0% 92%;
+    --ring: 210 60% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
     
-    /* Custom Singari Design Tokens */
-    --navy-deep: 215 45% 18%;
-    --navy-medium: 215 35% 28%;
-    --navy-light: 215 25% 38%;
-    --gold: 42 78% 58%;
-    --gold-muted: 42 50% 70%;
+    /* Zerodha-Inspired Design Tokens */
+    --dark-grey: 0 0% 15%;
+    --medium-grey: 0 0% 35%;
+    --light-grey: 0 0% 96%;
+    --blue-primary: 210 60% 50%;
+    --blue-dark: 215 70% 40%;
+    --blue-light: 210 55% 60%;
+    --green-success: 145 65% 45%;
+    --green-light: 145 60% 55%;
+    --red-danger: 0 72% 51%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(215 45% 18%) 0%, hsl(215 35% 28%) 50%, hsl(215 45% 22%) 100%);
-    --gradient-accent: linear-gradient(120deg, hsl(42 78% 58%) 0%, hsl(38 82% 65%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 15%) 0%, hsl(215 70% 40%) 50%, hsl(210 60% 50%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(210 60% 50%) 0%, hsl(210 55% 60%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
     
     /* Shadows */
-    --shadow-elegant: 0 20px 60px -15px hsl(215 45% 18% / 0.15);
-    --shadow-gold: 0 10px 40px -10px hsl(42 78% 58% / 0.25);
+    --shadow-elegant: 0 4px 20px -2px hsl(0 0% 0% / 0.08);
+    --shadow-blue: 0 4px 24px hsl(210 60% 50% / 0.20);
+    --shadow-glow: 0 0 30px hsl(210 60% 50% / 0.10);
     
     /* Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -75,33 +83,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 215 45% 12%;
+    --background: 0 0% 10%;
     --foreground: 0 0% 98%;
 
-    --card: 215 40% 16%;
+    --card: 0 0% 13%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 215 40% 16%;
+    --popover: 0 0% 13%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 215 45% 18%;
+    --primary: 210 60% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 35% 22%;
+    --secondary: 0 0% 18%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 215 35% 22%;
-    --muted-foreground: 215 15% 65%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 42 78% 58%;
-    --accent-foreground: 215 45% 18%;
+    --accent: 145 65% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 35% 25%;
-    --input: 215 35% 25%;
-    --ring: 42 78% 58%;
+    --border: 0 0% 22%;
+    --input: 0 0% 20%;
+    --ring: 210 60% 50%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -120,11 +128,23 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: "kern" 1, "liga" 1;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1, "ss01" 1, "cv11" 1;
+    letter-spacing: -0.01em;
   }
   
   html {
     scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
   }
 }
 
@@ -154,37 +174,52 @@ All colors MUST be HSL.
   }
   
   .text-navy-deep {
-    color: hsl(var(--navy-deep));
+    color: hsl(var(--dark-grey));
   }
   
   .text-navy-medium {
-    color: hsl(var(--navy-medium));
+    color: hsl(var(--medium-grey));
   }
   
   .text-gold {
-    color: hsl(var(--gold));
+    color: hsl(var(--blue-primary));
   }
   
   .bg-navy-deep {
-    background-color: hsl(var(--navy-deep));
+    background-color: hsl(var(--dark-grey));
   }
   
   .glass-effect {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   }
   
   .glass-morphism {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   
   .glass-button {
-    @apply relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 
-           hover:bg-white/10 hover:border-accent/30 hover:shadow-gold 
-           transition-all duration-300;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 193, 72, 0.4);
+    box-shadow: var(--shadow-gold);
   }
   
   .glass-button::before {
@@ -194,8 +229,8 @@ All colors MUST be HSL.
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.6s ease;
   }
   
   .glass-button:hover::before {
@@ -203,14 +238,129 @@ All colors MUST be HSL.
   }
   
   .glass-button-accent {
-    @apply relative overflow-hidden bg-gradient-to-r from-accent/20 to-accent/30 
-           backdrop-blur-md border border-accent/30 hover:border-accent 
-           hover:shadow-gold hover:scale-105 transition-all duration-300;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(66, 133, 244, 0.15) 0%, rgba(66, 133, 244, 0.08) 100%);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1.5px solid rgba(66, 133, 244, 0.3);
+    box-shadow: 0 4px 24px rgba(66, 133, 244, 0.15), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-button-accent:hover {
+    background: linear-gradient(135deg, rgba(66, 133, 244, 0.25) 0%, rgba(66, 133, 244, 0.15) 100%);
+    border-color: rgba(66, 133, 244, 0.5);
+    box-shadow: 0 8px 32px rgba(66, 133, 244, 0.25), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px) scale(1.02);
   }
   
   .glass-card {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 
-           hover:bg-white/10 hover:border-accent/20 hover:shadow-gold
-           transition-all duration-500;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+    border-color: rgba(66, 133, 244, 0.2);
+    box-shadow: 0 12px 48px rgba(66, 133, 244, 0.12), 
+                0 0 0 1px rgba(66, 133, 244, 0.08);
+    transform: translateY(-4px);
+  }
+  
+  /* Modern Button Effects */
+  .btn-magnetic {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .btn-magnetic:hover {
+    transform: translateY(-2px);
+  }
+  
+  .btn-magnetic:active {
+    transform: translateY(0);
+  }
+  
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    transition: transform 0.6s;
+  }
+  
+  .btn-shine:hover::after {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+  
+  .btn-glow {
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-glow:hover {
+    box-shadow: 0 0 20px 5px hsl(var(--primary) / 0.3), 0 0 40px 10px hsl(var(--primary) / 0.1);
+  }
+  
+  /* Smooth Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
   }
 }

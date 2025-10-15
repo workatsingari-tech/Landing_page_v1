@@ -1,22 +1,25 @@
 import { useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial, OrbitControls } from "@react-three/drei";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
 
 function FloatingParticles() {
   const pointsRef = useRef<THREE.Points>(null);
-  
+  const { viewport, mouse } = useThree();
+
   const particlesPosition = useMemo(() => {
-    const positions = new Float32Array(2000 * 3);
-    
-    for (let i = 0; i < 2000; i++) {
-      const x = (Math.random() - 0.5) * 10;
-      const y = (Math.random() - 0.5) * 10;
-      const z = (Math.random() - 0.5) * 10;
-      
-      positions[i * 3] = x;
-      positions[i * 3 + 1] = y;
-      positions[i * 3 + 2] = z;
+    const positions = new Float32Array(1000 * 3);
+    const distance = 2;
+
+    for (let i = 0; i < 1000; i++) {
+      const theta = THREE.MathUtils.randFloatSpread(360); 
+      const phi = THREE.MathUtils.randFloatSpread(360); 
+
+      let x = distance * Math.sin(theta) * Math.cos(phi)
+      let y = distance * Math.sin(theta) * Math.sin(phi);
+      let z = distance * Math.cos(theta);
+
+      positions.set([x, y, z], i * 3);
     }
     
     return positions;
@@ -24,8 +27,11 @@ function FloatingParticles() {
 
   useFrame((state) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.x = state.clock.elapsedTime * 0.05;
-      pointsRef.current.rotation.y = state.clock.elapsedTime * 0.075;
+      pointsRef.current.rotation.y += 0.0005;
+
+      const t = state.clock.getElapsedTime();
+      pointsRef.current.position.x = Math.sin(t * 0.1) * 0.2;
+      pointsRef.current.position.y = Math.cos(t * 0.1) * 0.2;
     }
   });
 
@@ -33,11 +39,12 @@ function FloatingParticles() {
     <Points ref={pointsRef} positions={particlesPosition} stride={3} frustumCulled={false}>
       <PointMaterial
         transparent
-        color="hsl(42, 78%, 58%)"
-        size={0.02}
+        color="hsl(210, 100%, 75%)"
+        size={0.015}
         sizeAttenuation={true}
         depthWrite={false}
-        opacity={0.6}
+        opacity={0.8}
+        blending={THREE.AdditiveBlending}
       />
     </Points>
   );
@@ -45,88 +52,44 @@ function FloatingParticles() {
 
 function FloatingGeometry() {
   const meshRef = useRef<THREE.Mesh>(null);
-  const mesh2Ref = useRef<THREE.Mesh>(null);
-  const mesh3Ref = useRef<THREE.Mesh>(null);
+  const { viewport, mouse } = useThree();
 
-  useFrame((state) => {
-    const time = state.clock.elapsedTime;
-    
+  useFrame(() => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = time * 0.2;
-      meshRef.current.rotation.y = time * 0.3;
-      meshRef.current.position.y = Math.sin(time * 0.5) * 0.3;
-    }
-    
-    if (mesh2Ref.current) {
-      mesh2Ref.current.rotation.x = time * 0.15;
-      mesh2Ref.current.rotation.z = time * 0.25;
-      mesh2Ref.current.position.y = Math.cos(time * 0.4) * 0.4;
-    }
-    
-    if (mesh3Ref.current) {
-      mesh3Ref.current.rotation.y = time * 0.25;
-      mesh3Ref.current.rotation.z = time * 0.2;
-      mesh3Ref.current.position.x = Math.sin(time * 0.3) * 0.5;
+      const x = (mouse.x * viewport.width) / 20;
+      const y = (mouse.y * viewport.height) / 20;
+      meshRef.current.rotation.x += 0.005 * (y - meshRef.current.rotation.x);
+      meshRef.current.rotation.y += 0.005 * (x - meshRef.current.rotation.y);
     }
   });
 
   return (
-    <>
-      <mesh ref={meshRef} position={[-2, 0, -3]}>
-        <octahedronGeometry args={[0.5, 0]} />
-        <meshStandardMaterial
-          color="hsl(42, 78%, 58%)"
-          wireframe
-          transparent
-          opacity={0.3}
-        />
-      </mesh>
-      
-      <mesh ref={mesh2Ref} position={[2, 1, -4]}>
-        <icosahedronGeometry args={[0.6, 0]} />
-        <meshStandardMaterial
-          color="hsl(215, 45%, 28%)"
-          wireframe
-          transparent
-          opacity={0.25}
-        />
-      </mesh>
-      
-      <mesh ref={mesh3Ref} position={[0, -1, -5]}>
-        <torusGeometry args={[0.5, 0.2, 16, 32]} />
-        <meshStandardMaterial
-          color="hsl(42, 78%, 58%)"
-          wireframe
-          transparent
-          opacity={0.2}
-        />
-      </mesh>
-    </>
+    <mesh ref={meshRef}>
+      <icosahedronGeometry args={[1.2, 0]} />
+      <meshStandardMaterial
+        color="hsl(210, 60%, 50%)"
+        wireframe
+        transparent
+        opacity={0.15}
+        emissive="hsl(210, 80%, 30%)"
+        emissiveIntensity={0.2}
+      />
+    </mesh>
   );
 }
 
 export const Hero3DBackground = () => {
   return (
-    <div className="absolute inset-0 w-full h-full">
+    <div className="absolute inset-0 w-full h-full -z-10">
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 50 }}
+        camera={{ position: [0, 0, 5], fov: 45 }}
         style={{ background: 'transparent' }}
       >
         <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} />
-        <pointLight position={[-10, -10, -10]} intensity={0.5} color="hsl(42, 78%, 58%)" />
+        <pointLight position={[10, 10, 10]} intensity={1} color="hsl(210, 100%, 80%)" />
         
         <FloatingParticles />
         <FloatingGeometry />
-        
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.5}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
       </Canvas>
     </div>
   );
