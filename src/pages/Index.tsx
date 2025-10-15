@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import { TrendingUp, Shield, Brain, Network, CheckCircle2, Lock, Award } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
+import { Hero3DBackground } from "@/components/Hero3DBackground";
 
 const Index = () => {
   return (
@@ -14,12 +15,13 @@ const Index = () => {
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(26, 47, 77, 0.95) 0%, rgba(26, 47, 77, 0.85) 100%), url(${heroBackground})`,
+          backgroundImage: `linear-gradient(135deg, rgba(26, 47, 77, 0.97) 0%, rgba(26, 47, 77, 0.92) 100%), url(${heroBackground})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
         }}
       >
+        <Hero3DBackground />
         <div className="container mx-auto px-6 py-32 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <h1 className="text-6xl md:text-7xl font-bold mb-6 text-primary-foreground leading-tight">
