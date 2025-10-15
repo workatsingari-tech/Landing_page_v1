@@ -75,33 +75,45 @@ const Index = () => {
             What Defines Singari
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <Card className="p-8 shadow-elegant hover:shadow-gold transition-smooth animate-scale-in">
-              <Brain className="h-12 w-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Quantitative Core</h3>
+            <Card className="p-8 glass-card group animate-scale-in">
+              <div className="relative inline-block mb-4">
+                <div className="absolute inset-0 bg-accent/20 blur-2xl rounded-full"></div>
+                <Brain className="h-12 w-12 text-accent relative z-10 transition-smooth group-hover:scale-110 group-hover:rotate-6" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-accent transition-smooth">Quantitative Core</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Every portfolio decision is driven by measurable intelligence — built on dynamic models that interpret global data, macroeconomic trends, and behavioral signals in real time.
               </p>
             </Card>
             
-            <Card className="p-8 shadow-elegant hover:shadow-gold transition-smooth animate-scale-in">
-              <TrendingUp className="h-12 w-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold mb-4 text-foreground">AI with Strategic Oversight</h3>
+            <Card className="p-8 glass-card group animate-scale-in">
+              <div className="relative inline-block mb-4">
+                <div className="absolute inset-0 bg-accent/20 blur-2xl rounded-full"></div>
+                <TrendingUp className="h-12 w-12 text-accent relative z-10 transition-smooth group-hover:scale-110 group-hover:rotate-6" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-accent transition-smooth">AI with Strategic Oversight</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Our systems adapt and learn; our advisors interpret and refine. The result — precision guided by principle.
               </p>
             </Card>
             
-            <Card className="p-8 shadow-elegant hover:shadow-gold transition-smooth animate-scale-in">
-              <Network className="h-12 w-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Institutional Infrastructure</h3>
+            <Card className="p-8 glass-card group animate-scale-in">
+              <div className="relative inline-block mb-4">
+                <div className="absolute inset-0 bg-accent/20 blur-2xl rounded-full"></div>
+                <Network className="h-12 w-12 text-accent relative z-10 transition-smooth group-hover:scale-110 group-hover:rotate-6" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-accent transition-smooth">Institutional Infrastructure</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Modeled on the frameworks that drive global asset managers — resilient, transparent, and auditable at every layer.
               </p>
             </Card>
             
-            <Card className="p-8 shadow-elegant hover:shadow-gold transition-smooth animate-scale-in">
-              <Award className="h-12 w-12 text-accent mb-4" />
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Tailored Intelligence</h3>
+            <Card className="p-8 glass-card group animate-scale-in">
+              <div className="relative inline-block mb-4">
+                <div className="absolute inset-0 bg-accent/20 blur-2xl rounded-full"></div>
+                <Award className="h-12 w-12 text-accent relative z-10 transition-smooth group-hover:scale-110 group-hover:rotate-6" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-accent transition-smooth">Tailored Intelligence</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Each client portfolio evolves with your objectives — balancing performance, liquidity, and risk through adaptive design.
               </p>

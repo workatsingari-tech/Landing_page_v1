@@ -174,4 +174,43 @@ All colors MUST be HSL.
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.12);
   }
+  
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+  
+  .glass-button {
+    @apply relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 
+           hover:bg-white/10 hover:border-accent/30 hover:shadow-gold 
+           transition-all duration-300;
+  }
+  
+  .glass-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+  }
+  
+  .glass-button:hover::before {
+    left: 100%;
+  }
+  
+  .glass-button-accent {
+    @apply relative overflow-hidden bg-gradient-to-r from-accent/20 to-accent/30 
+           backdrop-blur-md border border-accent/30 hover:border-accent 
+           hover:shadow-gold hover:scale-105 transition-all duration-300;
+  }
+  
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 
+           hover:bg-white/10 hover:border-accent/20 hover:shadow-gold
+           transition-all duration-500;
+  }
 }
